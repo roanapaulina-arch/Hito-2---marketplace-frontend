@@ -1,25 +1,31 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState("");
+  const { register } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
       alert("Por favor completa los campos");
       return;
     }
-    alert("Registro exitoso. Ahora inicia sesión.");
-    navigate("/login");
+
+    const res = await register(email, password);
+    if (res) {
+      alert("Registro exitoso. Ahora inicia sesión.");
+      navigate("/login");
+    }
   };
 
   return (
     <div className="container mt-5 d-flex justify-content-center">
-      <div className="card p-4 bg-success text-white style={{ maxWidth: '400px', width: '100%' }}">
+      <div className="card p-4 bg-success text-white" style={{ maxWidth: '400px', width: '100%' }}>
         <h3>Market Place</h3>
         <h5>Registrarse</h5>
         <form onSubmit={handleSubmit}>

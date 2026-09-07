@@ -5,22 +5,25 @@ import { UserContext } from '../context/UserContext';
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { setToken } = useContext(UserContext);
+  const { login } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (!email || !password) {
       alert("Por favor completa todos los campos");
       return;
     }
-    setToken(true); 
-    navigate("/profile"); 
+
+    const exito = await login(email, password);
+    if (exito) {
+      navigate("/profile");
+    }
   };
 
   return (
     <div className="container mt-5 d-flex justify-content-center">
-      <div className="card p-4 bg-warning style={{ maxWidth: '400px', width: '100%' }}">
+      <div className="card p-4 bg-warning" style={{ maxWidth: '400px', width: '100%' }}>
         <h3>Market Place</h3>
         <h5>Iniciar sesión</h5>
         <form onSubmit={handleSubmit}>
