@@ -1,8 +1,7 @@
 import React from 'react';
 
 const ProductCard = ({ producto, title, description, price, author, image }) => {
-
-  prodTitle = producto?.titulo || title;
+  const prodTitle = producto?.titulo || title;
   const prodDesc = producto?.descripcion || description;
   const prodPrice = producto?.precio || price;
   const prodAuthor = producto?.autor || author;
