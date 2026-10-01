@@ -16,6 +16,22 @@ const Home = () => {
       precio: "350.000",
       autor: "Travis Barker",
       imagen: "https://images.unsplash.com/photo-1519892300165-cb5542fb47c7?w=500"
+    },
+    {
+      id: 2,
+      titulo: "Guitarra Eléctrica Fender Stratocaster",
+      descripcion: "Sonido clásico, excelente estado con funda y accesorios incluidos.",
+      precio: "450.000",
+      autor: "Jimi Hendrix",
+      imagen: "https://images.unsplash.com/photo-1525201548942-d8732f6617a0?w=500"
+    },
+    {
+      id: 3,
+      titulo: "Teclado Sintetizador Roland Juno",
+      descripcion: "Ideal para producción musical, diseño sonoro y presentaciones en vivo.",
+      precio: "600.000",
+      autor: "SynthMaster",
+      imagen: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?w=500"
     }
   ];
 
